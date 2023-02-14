@@ -1,7 +1,8 @@
-FROM node:17-slim
-WORKDIR /usr/app
-COPY ./ usr/app
+#stage 1
+FROM node:latest as node
+WORKDIR /app
+COPY . .
 RUN npm install
-RUN npm run build
+RUN npm run build --prod
 EXPOSE 4200
 CMD ["node","index.js"]
