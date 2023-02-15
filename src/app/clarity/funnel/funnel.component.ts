@@ -8,9 +8,12 @@ import { Route, Router } from '@angular/router';
 })
 export class FunnelComponent implements OnInit {
   constructor(private router: Router) {}
-
+  errore: any = {};
   ngOnInit(): void {}
   goToTyp() {
     this.router.navigate(['/typ']);
+  }
+  generaErrore() {
+    throw new Error('custom errror');
   }
 }
